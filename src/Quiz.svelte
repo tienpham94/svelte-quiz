@@ -2,12 +2,20 @@
   let result = "";
   let correctAnswer = "b";
   let answers = ["a", "b", "c", "d"];
+  let quiz = getQuiz();
 
   function pickAnswer(answer) {
     if (answer === correctAnswer) {
       return (result = "Correct!");
     }
     result = "Oops";
+  }
+
+  async function getQuiz() {
+    const res = await fetch(
+      "https://opentdb.com/api.php?amount=10&category=12&type=multiple"
+    );
+    const quiz = await res.json();
   }
 </script>
 
@@ -18,6 +26,7 @@
 </style>
 
 <div>
+  <button on:click={getQuiz}>Get Questions</button>
   {#if result}
     <h4>{result}</h4>
   {:else}
