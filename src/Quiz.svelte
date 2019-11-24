@@ -7,6 +7,7 @@
   let activeQuestion = 0;
   let score = 0;
   let quiz = getQuiz();
+  let isModalOpen = false;
 
   async function getQuiz() {
     const res = await fetch(
@@ -26,6 +27,7 @@
   }
 
   function resetQuiz() {
+    isModalOpen = false;
     score = 0;
     activeQuestion = 0;
     quiz = getQuiz();
@@ -36,9 +38,8 @@
   }
 
   //Reactive statement
-  $: if (score > 1) {
-    alert("you won!");
-    resetQuiz();
+  $: if (score > 0) {
+    isModalOpen = true;
   }
   $: questionNumber = activeQuestion + 1;
 </script>
@@ -68,8 +69,10 @@
   {/await}
 </div>
 
-<Modal>
-  <h2>You won!</h2>
-  <p>Congrats!</p>
-  <button>Start over</button>
-</Modal>
+{#if isModalOpen}
+  <Modal>
+    <h2>You won!</h2>
+    <p>Congrats!</p>
+    <button on:click={resetQuiz}>Start over</button>
+  </Modal>
+{/if}
