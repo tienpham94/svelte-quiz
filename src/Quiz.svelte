@@ -2,6 +2,7 @@
   import { fade, blur, fly, slide, scale } from "svelte/transition";
   import { onMount, beforeUpdate, afterUpdate, onDestroy } from "svelte";
   import Question from "./Question.svelte";
+  import Modal from "./Modal.svelte";
 
   let activeQuestion = 0;
   let score = 0;
@@ -66,3 +67,7 @@
     {/each}
   {/await}
 </div>
+
+<Modal>
+  
+</Modal>
