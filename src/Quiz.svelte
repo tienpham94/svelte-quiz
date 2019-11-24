@@ -12,7 +12,7 @@
 </script>
 
 <style>
-  h4 {
+  :global(h4) {
     color: red;
   }
 </style>
