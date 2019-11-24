@@ -69,5 +69,7 @@
 </div>
 
 <Modal>
-  
+  <h2>You won!</h2>
+  <p>Congrats!</p>
+  <button>Start over</button>
 </Modal>
