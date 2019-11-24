@@ -3,9 +3,8 @@
 </script>
 
 <style>
-
-  global(body){
-    background: 
+  :global(body) {
+    background: aquablue;
   }
   h1 {
     color: white;
