@@ -20,11 +20,18 @@
 
   function resetQuiz() {
     score = 0;
+    activeQuestion = 0;
     quiz = getQuiz();
   }
 
   function addToScore() {
     score += 1;
+  }
+
+  //Reactive statement
+  $: if (score > 1) {
+    alert("you won!");
+    resetQuiz();
   }
 </script>
 
