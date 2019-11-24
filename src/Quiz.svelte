@@ -4,4 +4,5 @@
 
 <div>
   <h2>{quizName}</h2>
+  <input type="text" />
 </div>
