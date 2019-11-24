@@ -1,4 +1,5 @@
 <script>
+  import { fade } from "svelte/transition";
   import Question from "./Question.svelte";
 
   let activeQuestion = 0;
@@ -38,7 +39,9 @@
   {:then data}
     {#each data.results as question, index}
       {#if index === activeQuestion}
-        <Question {addToScore} {nextQuestion} {question} />
+        <div transition:fade={fade}>
+          <Question {addToScore} {nextQuestion} {question} />
+        </div>
       {/if}
     {/each}
   {/await}
