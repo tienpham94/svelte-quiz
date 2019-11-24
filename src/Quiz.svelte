@@ -1,6 +1,6 @@
 <script>
   import { fade, blur, fly, slide, scale } from "svelte/transition";
-  import { onMount } from "svelte";
+  import { onMount, beforeUpdate, afterUpdate, onDestroy } from "svelte";
   import Question from "./Question.svelte";
 
   let activeQuestion = 0;
@@ -16,6 +16,9 @@
   }
 
   onMount(() => console.log("mounted"));
+  beforeUpdate(() => console.log("1"));
+  afterUpdate(() => console.log("2"));
+  onDestroy(() => console.log("3"));
 
   function nextQuestion() {
     activeQuestion += 1;
