@@ -13,6 +13,8 @@
 <div>
   {#if result}
     <h4>{result}</h4>
+  {:else}
+    <h4>Please select an answer</h4>
   {/if}
   <button on:click={() => pickAnswer('a')}>Answer A</button>
   <button on:click={() => pickAnswer('b')}>Answer B</button>
