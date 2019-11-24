@@ -11,6 +11,12 @@
   }
 </script>
 
+<style>
+  h4 {
+    color: red;
+  }
+</style>
+
 <div>
   {#if result}
     <h4>{result}</h4>
