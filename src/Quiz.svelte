@@ -1,5 +1,5 @@
 <script>
-  import Question from "./Question";
+  import Question from "./Question.svelte";
 
   let quiz = getQuiz();
 
