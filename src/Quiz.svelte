@@ -3,9 +3,9 @@
   import { onMount, beforeUpdate, afterUpdate, onDestroy } from "svelte";
   import Question from "./Question.svelte";
   import Modal from "./Modal.svelte";
+  import { score } from "./store.js";
 
   let activeQuestion = 0;
-  let score = 0;
   let quiz = getQuiz();
   let isModalOpen = false;
 
@@ -28,17 +28,13 @@
 
   function resetQuiz() {
     isModalOpen = false;
-    score = 0;
+    score.set(0);
     activeQuestion = 0;
     quiz = getQuiz();
   }
 
-  function addToScore() {
-    score += 1;
-  }
-
   //Reactive statement
-  $: if (score > 0) {
+  $: if ($score > 0) {
     isModalOpen = true;
   }
   $: questionNumber = activeQuestion + 1;
@@ -53,7 +49,7 @@
 <div>
   <button on:click|once={resetQuiz}>Start new Quiz</button>
 
-  <h3>My Score: {score}</h3>
+  <h3>My Score: {$score}</h3>
   <h4>Question: #{questionNumber}</h4>
 
   {#await quiz}
@@ -62,7 +58,7 @@
     {#each data.results as question, index}
       {#if index === activeQuestion}
         <div transition:blur={{ amount: 10 }} class="fade-wrapper">
-          <Question {addToScore} {nextQuestion} {question} />
+          <Question {nextQuestion} {question} />
         </div>
       {/if}
     {/each}
