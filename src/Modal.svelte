@@ -1,5 +1,5 @@
 <script>
-
+  import { fade, blur, fly, slide, scale } from "svelte/transition";
 </script>
 
 <style>
@@ -17,8 +17,8 @@
   }
 </style>
 
-<div class="modal-bg">
-  <div class="modal">
+<div class="modal-bg" transition:fade>
+  <div class="modal" in:fly={{ y: 100 }} out:fly={{ y: -200 }>
     <button>Close</button>
     <slot />
   </div>
