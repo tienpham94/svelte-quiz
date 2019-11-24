@@ -1,15 +1,7 @@
 <script>
-  let result = "";
-  let correctAnswer = "b";
-  let answers = ["a", "b", "c", "d"];
-  let quiz = getQuiz();
+  import Question from "./Question";
 
-  function pickAnswer(answer) {
-    if (answer === correctAnswer) {
-      return (result = "Correct!");
-    }
-    result = "Oops";
-  }
+  let quiz = getQuiz();
 
   async function getQuiz() {
     const res = await fetch(
@@ -32,20 +24,12 @@
 
 <div>
   <button on:click={handleClick}>Get Questions</button>
-  {#if result}
-    <h4>{result}</h4>
-  {:else}
-    <h4>Please select an answer</h4>
-  {/if}
 
   {#await quiz}
     Loading....
   {:then data}
-    <h3>{data.results[0].question}</h3>
+    {#each data.results as question}
+      <Question {question} />
+    {/each}
   {/await}
-  {#each answers as answer}
-    <button on:click={() => pickAnswer(answer)}>
-      Answer {answer.toUpperCase()}
-    </button>
-  {/each}
 </div>
