@@ -28,6 +28,12 @@
   }
 </script>
 
+<style>
+  .fade-wrapper {
+    position: absolute;
+  }
+</style>
+
 <div>
   <button on:click={resetQuiz}>Start new Quiz</button>
 
@@ -39,7 +45,7 @@
   {:then data}
     {#each data.results as question, index}
       {#if index === activeQuestion}
-        <div transition:fade={fade}>
+        <div transition:fade={fade} class="fade-wrapper">
           <Question {addToScore} {nextQuestion} {question} />
         </div>
       {/if}
