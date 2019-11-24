@@ -16,7 +16,11 @@
       "https://opentdb.com/api.php?amount=10&category=12&type=multiple"
     );
     const quiz = await res.json();
-    return quiz
+    return quiz;
+  }
+
+  function handleClick() {
+    quiz = getQuiz();
   }
 </script>
 
@@ -27,7 +31,7 @@
 </style>
 
 <div>
-  <button on:click={getQuiz}>Get Questions</button>
+  <button on:click={handleClick}>Get Questions</button>
   {#if result}
     <h4>{result}</h4>
   {:else}
