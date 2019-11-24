@@ -11,7 +11,9 @@
 </script>
 
 <div>
-  <h4>{result}</h4>
+  {#if result}
+    <h4>{result}</h4>
+  {/if}
   <button on:click={() => pickAnswer('a')}>Answer A</button>
   <button on:click={() => pickAnswer('b')}>Answer B</button>
   <button on:click={() => pickAnswer('c')}>Answer C</button>
