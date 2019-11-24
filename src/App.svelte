@@ -27,6 +27,7 @@
 
 <main>
   <h1>Hello {name}!</h1>
+	<h4>I'm h4</h4>
 	<Quiz quizName="New quiz"/>
   <p>
     Visit the
