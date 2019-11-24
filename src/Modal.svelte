@@ -1,5 +1,8 @@
 <script>
   import { fade, blur, fly, slide, scale } from "svelte/transition";
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
 </script>
 
 <style>
@@ -18,8 +21,8 @@
 </style>
 
 <div class="modal-bg" transition:fade>
-  <div class="modal" in:fly={{ y: 100 }} out:fly={{ y: -200 }>
-    <button>Close</button>
+  <div class="modal" transition:fly={{ y: -100 }}>
+    <button on:click={() => dispatch('close')}>Close</button>
     <slot />
   </div>
 </div>
