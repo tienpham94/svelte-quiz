@@ -35,9 +35,12 @@
 
 <style>
   h5 {
+    color: blueviolet;
+  }
+  h5.wrong {
     color: red;
   }
-  h5.correct {
+  h5.isCorrect {
     color: aquamarine;
   }
 </style>
@@ -47,7 +50,7 @@
 </h3>
 
 {#if isAnswered}
-  <h5 class:correct={isCorrect}>
+  <h5 class:isCorrect class:wrong={!isCorrect}>
     {#if isCorrect}You got it right{:else}You goofed up{/if}
   </h5>
 {/if}
