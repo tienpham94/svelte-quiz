@@ -1,7 +1,7 @@
 <script>
   import Question from "./Question.svelte";
 
-  let activeQuestion = 1;
+  let activeQuestion = 0;
   let quiz = getQuiz();
 
   async function getQuiz() {
@@ -21,6 +21,7 @@
   <button on:click={handleClick}>Start new Quiz</button>
 
   <h3>My Score: 0</h3>
+  <h4>Question: #{activeQuestion + 1}</h4>
 
   {#await quiz}
     Loading....
