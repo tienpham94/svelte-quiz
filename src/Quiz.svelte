@@ -1,5 +1,5 @@
 <script>
-  import { fade } from "svelte/transition";
+  import { fade, blur, fly, slide, scale } from "svelte/transition";
   import Question from "./Question.svelte";
 
   let activeQuestion = 0;
@@ -45,7 +45,7 @@
   {:then data}
     {#each data.results as question, index}
       {#if index === activeQuestion}
-        <div transition:fade={fade} class="fade-wrapper">
+        <div transition:blur={{ amount: 10 }} class="fade-wrapper">
           <Question {addToScore} {nextQuestion} {question} />
         </div>
       {/if}
