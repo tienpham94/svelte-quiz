@@ -49,7 +49,7 @@
 </style>
 
 <div>
-  <button on:click={resetQuiz}>Start new Quiz</button>
+  <button on:click|once={resetQuiz}>Start new Quiz</button>
 
   <h3>My Score: {score}</h3>
   <h4>Question: #{questionNumber}</h4>
