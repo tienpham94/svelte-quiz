@@ -1,12 +1,12 @@
 <script>
-  function pickAnswer(){
-    console.log('answered')
+  function pickAnswer() {
+    console.log("answered");
   }
 </script>
 
 <div>
-  <button on:click={}>Answer A</button>
-  <button>Answer B</button>
-  <button>Answer C</button>
-  <button>Answer D</button>
+  <button on:click={pickAnswer}>Answer A</button>
+  <button on:click={pickAnswer}>Answer B</button>
+  <button on:click={pickAnswer}>Answer C</button>
+  <button on:click={pickAnswer}>Answer D</button>
 </div>
