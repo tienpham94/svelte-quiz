@@ -3,6 +3,10 @@
 </script>
 
 <style>
+
+  global(body){
+    background: 
+  }
   h1 {
     color: white;
     text-align: center;
