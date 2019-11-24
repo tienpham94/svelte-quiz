@@ -38,7 +38,7 @@
 </h3>
 
 {#if isAnswered}
-  <h5>
+  <h5 class={isCorrect ? 'correct' : 'wrong'}>
     {#if isCorrect}You got it right{:else}You goofed up{/if}
   </h5>
 {/if}
