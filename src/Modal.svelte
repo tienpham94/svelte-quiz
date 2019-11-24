@@ -2,6 +2,7 @@
   import { fade, blur, fly, slide, scale } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
 
+  let w;
   const dispatch = createEventDispatcher();
 </script>
 
@@ -21,8 +22,9 @@
 </style>
 
 <div class="modal-bg" transition:fade>
-  <div class="modal" transition:fly={{ y: -100 }}>
+  <div class="modal" transition:fly={{ y: -100 }} bind:clientWidth={w}>
     <button on:click={() => dispatch('close')}>Close</button>
+    {w}
     <slot />
   </div>
 </div>
