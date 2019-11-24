@@ -1,5 +1,6 @@
 <script>
   import { fade, blur, fly, slide, scale } from "svelte/transition";
+  import { onMount } from "svelte";
   import Question from "./Question.svelte";
 
   let activeQuestion = 0;
@@ -13,6 +14,8 @@
     const quiz = await res.json();
     return quiz;
   }
+
+  onMount(() => console.log("mounted"));
 
   function nextQuestion() {
     activeQuestion += 1;
